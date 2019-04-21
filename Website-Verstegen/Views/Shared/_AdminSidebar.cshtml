@@ -1,0 +1,39 @@
+﻿@*<div class="navbar navbar-inverse navbar-fixed-top admin-navbar">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-controller="Admin" asp-action="Logout">Logout</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="Admin" asp-action="Login">Login</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>*@
+
+@*@if (User.Identity.IsAuthenticated)
+{*@
+<nav class="navbar navbar-default navbar-fixed-side sidebar sidebar-admin sidebar-crud">
+    <div class="admin-menu-title">Manage all items</div>
+    <a href="@Url.Action("Index", "Admin")" class="navbar-item">Home</a>
+    <a href="@Url.Action("Index", "Blogs")" class="navbar-item">Blogs</a>
+    <a href="@Url.Action("Index", "Certificates")" class="navbar-item">Certificates</a>
+    <a href="@Url.Action("Index", "ContactPersons")" class="navbar-item">Contact_personen</a>
+    <a href="@Url.Action("Index", "Countries")" class="navbar-item">Countries</a>
+    <a href="@Url.Action("Index", "Packagings")" class="navbar-item">Packaging</a>
+    <a href="@Url.Action("Index", "Products")" class="navbar-item">Products</a>
+    <a href="@Url.Action("Index", "Provinces")" class="navbar-item">Provinces</a>
+    <a href="@Url.Action("Index", "Recipes")" class="navbar-item">Recipes</a>
+    <a href="@Url.Action("Index", "SpotlightConnectors")" class="navbar-item">Spotlight</a>
+    <a href="@Url.Action("Index", "Themes")" class="navbar-item">Themes</a>
+    <a href="@Url.Action("Index", "ThemeProducts")" class="navbar-item">ThemeProducts</a>
+    <a href="@Url.Action("Index", "Stories")" class="navbar-item">Stories</a>
+</nav>
+@*}*@

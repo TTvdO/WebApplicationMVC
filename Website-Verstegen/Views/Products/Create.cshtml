@@ -1,0 +1,66 @@
+﻿@model Website_Verstegen.Models.Product
+<script src="~/js/Product.js"></script>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+
+<h2>Create</h2>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    @using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.Label("Title", "Title")
+                @Html.TextBox("Title", "", new { @class = "form-control", required = "required" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Category", "Category")
+                @Html.TextBox("Category", "", new { @class = "form-control", required = "required" })
+            </div>
+            <div class="form-group">
+                @Html.Label("ImageUrl", "ImageUrl")
+                @Html.TextBox("ImageUrl", "ImageUrl", new { @class = "form-control", type = "file", required = "required" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Description", "Description")
+                @Html.TextArea("Description", "", new { @class = "form-control", required = "required" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Contents", "Contents")
+                @Html.TextBox("Contents", "", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("DownloadLink", "DownloadLink")
+                @Html.TextBox("DownloadLink", "", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <button type="submit" name="create_product">Create Product</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @Html.Hidden("product_details_counter", 1)
+            <div class="form-group product_details">
+                <label class="product_detail control-label">Add product details to your product.</label>
+                <input class="form-control" type="text" name="product_detail_1" placeholder="Keep in the fridge.." />
+            </div>
+            <div class="form-group">
+                <input type="button" onclick="addProductDetailsInputField()" class="btn btn-default" value="Add more details">
+            </div>
+        </div>
+    }
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

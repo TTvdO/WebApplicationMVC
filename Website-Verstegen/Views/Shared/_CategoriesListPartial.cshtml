@@ -1,0 +1,45 @@
+﻿@model List<Category>
+<link rel="stylesheet" href="~/css/categoriesListPartial.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+@{
+    Layout = null;
+    int counter = 0;
+}
+
+<div class="container-fluid categories-container">
+    <h4 class="title">Categories</h4>
+    <h1 class="desc">Find the best ideas in your branch</h1>
+    <div class="row display-row">
+        <div class="col-md-6 col-sm-6 col-xs-12 list-group categories">
+            @for (int i = 0; i < Model.Take(7).Count(); i++)
+            {
+                if (counter % 2 == 1)
+                {
+                    <a class="list-group-item list-group-item-light" href="products/productoverview?itemtypes=@Model[i].Title">@Model[i].Title<span class="glyphicon glyphicon-arrow-right pull-right"></span></a>
+                }
+                else
+                {
+                    <a class="list-group-item list-group-item-dark" href="products/productoverview?itemtypes=@Model[i].Title">@Model[i].Title<span class="glyphicon glyphicon-arrow-right pull-right"></span></a>
+                }
+                counter++;
+            }
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 list-group categories">
+            @for (int i = 7; i < Model.Take(14).Count(); i++)
+            {
+                if (counter % 2 == 1)
+                {
+                    <a class="list-group-item list-group-item-dark" href="products/productoverview?itemtypes=@Model[i].Title">@Model[i].Title<span class="glyphicon glyphicon-arrow-right pull-right"></span></a>
+                }
+                else
+                {
+                    <a class="list-group-item list-group-item-light" href="products/productoverview?itemtypes=@Model[i].Title">@Model[i].Title<span class="glyphicon glyphicon-arrow-right pull-right"></span></a>
+                }
+                counter++;
+            }
+        </div>
+     </div>
+</div>
+
+

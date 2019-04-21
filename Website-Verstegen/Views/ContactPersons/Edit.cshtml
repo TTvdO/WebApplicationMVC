@@ -1,0 +1,62 @@
+﻿@model Website_Verstegen.Models.ContactPerson
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+<h2>Edit</h2>
+
+<h4>ContactPerson</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Naam" class="control-label"></label>
+                <input asp-for="Naam" class="form-control" />
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Functie" class="control-label"></label>
+                <input asp-for="Functie" class="form-control" />
+                <span asp-validation-for="Functie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefoonnummer" class="control-label"></label>
+                <input asp-for="Telefoonnummer" class="form-control" />
+                <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAdres" class="control-label"></label>
+                <input asp-for="EmailAdres" class="form-control" />
+                <span asp-validation-for="EmailAdres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label"></label>
+                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryId"></select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProvinceId" class="control-label"></label>
+                <select asp-for="ProvinceId" class="form-control" asp-items="ViewBag.ProvinceId"></select>
+                <span asp-validation-for="ProvinceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

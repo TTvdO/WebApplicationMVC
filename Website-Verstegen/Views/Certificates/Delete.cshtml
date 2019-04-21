@@ -1,0 +1,40 @@
+﻿@model Website_Verstegen.Models.Certificate
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Certificate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayName("Alt Text")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alt_Text)
+        </dd>
+        <dt>
+            @Html.DisplayName("Image")
+        </dt>
+        <dd>
+            <img class="img-responsive product-image" src="@Model.Img_Src" />
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,61 @@
+﻿@model Website_Verstegen.Models.ContactPerson
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ContactPerson</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Functie)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Functie)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefoonnummer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefoonnummer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAdres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailAdres)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Province.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

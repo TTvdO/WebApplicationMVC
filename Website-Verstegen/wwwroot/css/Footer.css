@@ -1,0 +1,342 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Avenir');
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+.first-footer-container {
+    background-color: #536B63;
+    z-index:3;
+}
+
+.second-footer-container{
+    background-color: #89A99F;
+}
+
+.footer-header-text {
+    font-family: 'Avenir', sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 1%;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.footer-download-text {
+    font-family: 'Avenir', sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 4%;
+    font-size: 17px;
+}
+
+.footer-download-text-after {
+    font-family: 'Avenir', sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 4%;
+    font-size: 17px;
+    display: none;
+}
+
+/*.certificate{
+    padding-right: 2px !important;
+}*/
+
+.image-row {
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+.second-footer-second-row {
+    padding-top: 3%;
+    padding-bottom: 1%;
+}
+
+.second-footer-first-column {
+    padding-left: 6%;
+}
+
+.second-footer-first-column-text{
+    font-family: 'Avenir', sans-serif;
+    letter-spacing: 2px;
+    font-size: 20px
+}
+
+.address-info {
+    font-family: 'Avenir', sans-serif;
+    font-size: 17px;
+    color: white;
+}
+
+.second-footer-second-column{
+    padding-left: 6%;
+}
+
+.second-footer-second-column-text {
+    font-family: 'Avenir', sans-serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.contact-info {
+    font-family: 'Avenir', sans-serif;
+    font-size: 17px;
+    color: white;
+}
+
+.second-footer-third-column-text {
+    font-family: 'Avenir', sans-serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.newsletter-text {
+    font-style: italic;
+    font-family: 'Avenir', sans-serif;
+    font-size: 17px;
+    color: white;
+}
+
+.input-newsletter {
+    font-family: 'Avenir', sans-serif;
+    font-size: 17px;
+    padding: 11px 15px;
+    border-radius: 4px;
+    margin-right: 1%;
+}
+
+.subscribe-button {
+    font-family: 'Avenir', sans-serif;
+    font-size: 17px;
+    background-color: #CD0B35;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 13px 16px;
+    text-align: center;
+}
+
+.third-footer-verstegen-logo {
+    float: left;
+    width: 14% !important;
+    margin-left: 15%;
+    margin-right: 7%;
+}
+
+.third-footer-first-column-text {
+    font-family: 'Avenir', sans-serif;
+    font-size: 11px;
+    float: none;
+    padding-top: 5%;
+}
+
+.third-footer-third-row {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.third-footer-second-column-text {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    color: #007A51;
+    padding-top: 2%;
+    font-size: 25px;
+}
+
+.btn-toolbar {
+    padding-left: 40%;
+}
+
+.btn-override {
+    background-color: #CD0B35;
+    color: white;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+}
+
+.certificate-images {
+    background-repeat: no-repeat;
+    width: 100%;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.certificate-images:hover {
+    background-repeat: no-repeat;
+    width: 100%;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+@media screen and (max-width: 992px) {
+
+    .second-footer-first-column {
+        text-align: center;
+    }
+
+    .second-footer-second-column {
+        text-align: center;
+    }
+
+    .second-footer-third-column {
+        text-align: center;
+    }
+
+    .third-footer-first-column {
+        text-align: center;
+    }
+
+    .certificate {
+        padding-left: 0 !important;
+        padding-top: 1%;
+    }
+
+    .image-row {
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+
+    .footer-header-text{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .btn-toolbar{
+        padding-left: 42%;
+    }
+
+    .third-footer-first-column-text {
+        padding-top: 6%;
+    }
+
+    .image-row {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    .second-footer-second-row{
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+}
+
+/*Smartphones Media Query*/
+@media screen and (max-width: 576px){
+
+    .image-row {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .second-footer-second-row {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .second-footer-first-column{
+        text-align: left;
+    }
+
+    .second-footer-second-column{
+        text-align: left;
+    }
+
+    .second-footer-third-column{
+        text-align: left;
+    }
+
+    .second-footer-second-column{
+        margin-bottom: 5%;
+    }
+
+    .input-newsletter {
+        width: 100%;
+        margin-bottom: 6%;
+        margin-top: 2%;
+        padding: 15px 15px;
+        border-radius: 7px;
+    }
+
+    .subscribe-button {
+        padding: 15px 19px;
+        margin-bottom: 7%;
+    }
+
+    .third-footer-container{
+        margin-top: 10%;
+    }
+
+    .third-footer-verstegen-logo {
+        width: 27% !important;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+
+    .third-footer-first-column-text{
+        font-size: 14px;
+        text-align: left;
+        padding-top: 0;
+        margin-right: 12%;
+    }
+
+    .third-footer-second-column-text{
+        text-align: left;
+        font-size: 24px;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+
+    .btn-toolbar {
+        padding-left: 5%;
+    }
+
+    .btn-override {
+        height: 45px;
+        width: 50px;
+        padding: 0;
+    }
+
+    .image-row{
+        display: none;
+    }
+
+    .footer-download-text{
+        display: none;
+    }
+
+    .footer-download-text-after {
+        display: initial;
+        margin-bottom: 4%;
+    }
+
+    .footer-header-text{
+        margin-top: 4%;
+    }
+
+    .fa-download{
+        margin-right: 2%;
+    }
+
+    .second-footer-first-column-text{
+        margin-top: 9%;
+    }
+
+    .second-footer-second-column-text{
+        margin-top: 0;
+    }
+
+    .download-all-certificates:link:hover {
+        text-decoration: inherit;
+        color: #8c8c8c;
+        cursor: auto;
+    }
+
+    .download-all-certificates:link {
+        text-decoration: inherit;
+        color: inherit;
+        cursor: auto;
+    }
+}

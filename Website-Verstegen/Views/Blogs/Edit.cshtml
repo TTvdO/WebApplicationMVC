@@ -1,0 +1,68 @@
+﻿@model Website_Verstegen.Models.Blog
+
+@{ 
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Edit";
+}
+
+<link rel="stylesheet" href="~/css/Blogs.css" />
+
+
+<script src="https://cloud.tinymce.com/5-testing/tinymce.min.js"></script>
+
+<h2>Edit</h2>
+
+<h4>Blog</h4>
+<hr />
+<div class="col-md-12">
+    @using (Html.BeginForm("Edit", "Blogs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subtitle" class="control-label"></label>
+                <input asp-for="Subtitle" class="form-control" />
+                <span asp-validation-for="Subtitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label><br />
+                <textarea asp-for="Content" id="textarea-editor-content" class="form-control"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.Label("ImageUrl", "ImageUrl")
+                @Html.TextBox("ImageUrl", "ImageUrl", new { @class = "form-control", type = "file" })
+            </div>
+            <div class="form-group">
+                <label class="control-label">Current Image</label>
+                <img class="img-responsive blog-image" src="@Model.ImageUrl" />
+            </div>
+        </div>
+    }
+</div>
+<script src="~/js/Blogs.js"></script>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,76 @@
+﻿<link href="~/css/ProductDetails.css" type="text/css" rel="stylesheet" />
+@model Website_Verstegen.ViewModels.Product_ProductDetailViewModel
+@{
+    int counter = 0;
+}
+
+<div class="product-details-container-fluid">
+    <div class="row">
+        <div class="col-md-6 left-side-page">
+            <div class="col-md-12 product-images-row">
+                <img class="img-responsive product-detail-product-image" src="@Model.Product.ImageUrl" />
+            </div>
+            <div class="col-md-12 small-product-images-row">
+                <img class="img-responsive small-product-images" src="@Model.Product.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-6 right-side-page">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="/Home">@Html.Label("Home", "Home")</a></li>
+                    <li><a href="/Products/ProductOverView">@Html.LabelForModel(Model.Product.Type)</a></li>
+                    <li><a href="/Products/ProductOverView?itemtypes=@Model.Product.Category">@Html.LabelForModel(Model.Product.Category)</a></li>
+                    <li>@Html.LabelForModel(Model.Product.Title)</li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <h1 class="product-title">@Html.LabelForModel(Model.Product.Title)</h1>
+            </div>
+            <div class="col-md-12">
+                <h5 class="product-description">@Html.LabelForModel(Model.Product.Description)</h5>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="category-row">
+                    <h5 class="info-label"><label asp-for="Product.Category"></label></h5>
+                    <h5 class="product-info-label"><label>@Model.Product.Category</label></h5>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="contents-row">
+                    <h5 class="info-label"><label asp-for="Product.Contents"></label></h5>
+                    <h5 class="product-info-label"><label>@Model.Product.Contents</label></h5>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h3 class="details-header"><label>Product details</label></h3>
+                <ul class="list-group">
+                    @foreach (var detail in Model.AllDetails)
+                    {
+                        if (counter % 2 == 1)
+                        {
+                            <li class="list-group-item light-item">@detail.Details</li>
+                        }
+                        else
+                        {
+                            <li class="list-group-item dark-item">@detail.Details</li>
+                        }
+                        counter++;
+                    }
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4 class="product-specifications">Looking for more specifications?</h4>
+            </div>
+            <div class="col-md-6">
+                <a href="@Model.Product.DownloadLink" download>
+                    <button type="submit" class="specs-button">
+                        <h5 class="specs-text">Download specsheet</h5>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    @await Component.InvokeAsync("FAQPartial")
+    @await Component.InvokeAsync("RecipeDoorway")
+</div>
+@await Component.InvokeAsync("RelatedProducts", Model)

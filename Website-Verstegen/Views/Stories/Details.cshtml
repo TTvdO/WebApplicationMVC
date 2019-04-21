@@ -1,0 +1,74 @@
+﻿@model Website_Verstegen.Models.Story
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_AdminLayout";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Story</h4>
+    <hr />
+    <div class="row">
+        <dl class="col-md-3 dl-horizontal">
+            <dt>
+                Story's title
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt>
+                Story's description
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                Story's type
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+            <dt>
+                Story's category
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
+            <dt>
+                Theme's name
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Theme.ThemeName)
+            </dd>
+            <dt>
+                Theme's description
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Theme.Description)
+            </dd>
+        </dl>
+        <dl class="col-md-3">
+            <dt>
+                Story's image
+            </dt>
+            <dd>
+                <img class="img-responsive crud-image" src="@Model.ImageUrl" />
+            </dd>
+        </dl>
+        <dl class="col-md-3">
+            <dt>
+                Theme's image
+            </dt>
+            <dd>
+                <img class="img-responsive crud-image" src="@Model.Theme.ImageUrl" />
+            </dd>
+        </dl>
+        </dl>
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,75 @@
+﻿@model Website_Verstegen.ViewModels.RecipeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+
+<h2>Edit</h2>
+
+<h4>Recipe</h4>
+<hr />
+<div class="row">
+    @using (Html.BeginForm("Edit", "Recipes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-md-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Recipe.Id" />
+            <div class="form-group">
+                <label asp-for="Recipe.Title" class="control-label"></label>
+                <input asp-for="Recipe.Title" class="form-control" />
+                <span asp-validation-for="Recipe.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recipe.Category" class="control-label"></label>
+                <input asp-for="Recipe.Category" class="form-control" />
+                <span asp-validation-for="Recipe.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="Recipe.ImageUrl" class="control-label"></label>
+                <input asp-for="Recipe.ImageUrl" class="form-control" />
+                <span asp-validation-for="Recipe.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.Label("ImageUrl", "ImageUrl")
+                @Html.TextBox("ImageUrl", "ImageUrl", new { @class = "form-control", type = "file" })
+            </div>
+            <div class="form-group">
+                <label class="control-label">Current Image</label>
+                <img class="img-responsive product-image" src="@Model.Recipe.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            @foreach (var detail in Model.PreparationSteps)
+            {
+                <div class="form-group">
+                    <label class="control-label">Product Details</label>
+                    <input name="product_detail" class="form-control" value="@detail.Text" />
+                </div>
+            }
+        </div>
+        <div class="col-md-3">
+            @foreach (var derp in Model.Ingredients)
+            {
+                <div class="form-group">
+                    <label class="control-label">Ingredients Details</label>
+                    <span name="product_detail" class="form-control"> @derp.Name, @derp.Amount@derp.Unit</span>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

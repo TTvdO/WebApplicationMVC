@@ -1,0 +1,57 @@
+﻿@model Website_Verstegen.Models.Theme
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_AdminLayout";
+}
+
+<h2>Edit</h2>
+
+<h4>Theme</h4>
+<hr />
+<div class="row">
+    @using (Html.BeginForm("Edit", "Themes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ThemeId" />
+        <div class="form-group">
+            <label asp-for="ThemeName" class="control-label"></label>
+            <input asp-for="ThemeName" class="form-control" />
+            <span asp-validation-for="ThemeName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group" hidden>
+            <label asp-for="ImageUrl" class="control-label"></label>
+            <input asp-for="ImageUrl" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            @Html.Label("ImageUrl", "ImageUrl")
+            @Html.TextBox("ImageUrl", "ImageUrl", new { @class = "form-control", type = "file" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Current Image</label>
+            <img class="img-responsive crud-image" src="@Model.ImageUrl" />
+        </div>
+        <div>
+            <h4>@ViewBag.Error</h4>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+    }
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

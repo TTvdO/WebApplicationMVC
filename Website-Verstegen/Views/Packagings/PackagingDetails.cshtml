@@ -1,0 +1,51 @@
+﻿<link href="~/css/ProductDetails.css" type="text/css" rel="stylesheet" />
+@model Website_Verstegen.Models.Packaging
+<div class="product-details-container-fluid">
+    <div class="row packaging-row">
+        <div class="col-md-6 packaging-left-side-page">
+            <div class="col-md-12 packaging-images-row">
+                <img class="img-responsive packaging-image" src="@Model.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-6 right-side-page">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="/Home">@Html.Label("Home", "Home")</a></li>
+                    <li>@Html.LabelForModel(Model.Type)</li>
+                    <li>@Html.LabelForModel(Model.Category)</li>
+                    <li>@Html.LabelForModel(Model.Title)</li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <h1 class="product-title">@Html.LabelForModel(Model.Title)</h1>
+            </div>
+            <div class="col-md-12">
+                <h5 class="product-description">@Html.LabelForModel(Model.Description)</h5>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="category-row">
+                    <h5 class="info-label"><label asp-for="Category"></label></h5>
+                    <h5 class="product-info-label"><label>@Model.Category</label></h5>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h3 class="details-header"><label>Packaging details</label></h3>
+                <ul class="list-group">
+                    <li class="list-group-item dark-item">Contents: @Model.Contents</li>
+                    <li class="list-group-item light-item">Height: @Model.PackagingHeight cm</li>
+                    <li class="list-group-item dark-item">Width: @Model.PackagingWidth cm</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4 class="product-specifications">Looking for more specifications?</h4>
+            </div>
+            <div class="col-md-6">
+                <a href="@Model.Category" download>
+                    <button type="submit" class="specs-button"><h5 class="specs-text">Download specsheet</h5></button>
+                </a>
+            </div>
+        </div>
+    </div>
+    @await Component.InvokeAsync("FAQPartial")
+    @await Component.InvokeAsync("RecipeDoorway")
+</div>

@@ -1,0 +1,48 @@
+﻿@model List<Theme>
+<link href="~/css/themesPartial.css" rel="stylesheet" type="text/css">
+
+<div class="themes-container-fluid">
+    <div class="row themes text-center">
+        <p class="themes-text">Themes</p>
+    </div>
+    <div class="row inspiration text-center">
+        <p class="inspiration-text">Inspiration for special seasons</p>
+    </div>
+    <div class="themes-boxrows-container">
+        @foreach (var theme in Model)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-6 themes-box">
+                <div class="themes-content-box">
+                    <div class="upper-box">
+                        <a href="/UnderConstruction">
+                            <img class="upper-img" src="@theme.ImageUrl" alt="@theme.Description">
+                        </a>
+                        <div class="logo-box">
+                            <div class="logo">
+                                <img class="logo-img" src="~/images/themesPartial/snowflake.png" alt="Easter egg icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="themes-lower-text">
+                        <div class="pijl-text-container">
+                            <p class="pijl-text text-center">@theme.ThemeName</p>
+                            <a href="/UnderConstruction">
+                                <img class="pijl" src="~/images/themesPartial/pijl.svg" alt="Easter 2018">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row load">
+        <div class="load-box text-center col-md-2 col-sm-2 col-xs-2">
+            <p class="load-text">
+                Load more
+                <a>
+                    <img class="downward-arrow img-responsive" src="~/images/themesPartial/downwards-arrow-key.png" alt="Load more">
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

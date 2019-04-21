@@ -1,0 +1,34 @@
+﻿@model Website_Verstegen.Models.SpotLightConnector
+
+@{ 
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Spotlight Connector</h4>
+    <hr />
+    <div class="row">
+        <dl class="col-md-3 dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.actionName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.actionName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.controllerName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.controllerName)
+            </dd>
+        </dl>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

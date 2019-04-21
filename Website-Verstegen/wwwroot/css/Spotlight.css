@@ -1,0 +1,18 @@
+﻿.category{
+    margin-left: -15px;
+    width:40%;
+    color: rgba(77,77,77,0.9);
+    padding: 10px !important;
+}
+
+.spotlight-img{
+    margin-top: -82px;
+    margin-left: -19px;
+    opacity:0.1;
+    height: 100px;
+    width: 100px;
+}
+
+.spotlight-item{
+    width: 20%;
+}

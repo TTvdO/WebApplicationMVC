@@ -1,0 +1,60 @@
+﻿<script src="~/js/SpotlightConnector.js" type="text/javascript"></script>
+<link href="~/css/spotlightPartial.css" type="text/css" rel="stylesheet" />
+@model Website_Verstegen.ViewModels.SpotlightViewModel
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>SpotLightConnector</h4>
+<hr />
+<div class="row">
+    <form asp-action="Create">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <p>The Spotlight Connector Will Be Shown For The Partial Page Of The Controller And Action You Choose Here.</p>
+            <div class="form-group">
+                <label class="control-label">Controller Name</label>
+                <input asp-for="SpotLightConnector.controllerName" class="form-control" required />
+                <span asp-validation-for="SpotLightConnector.controllerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Action Name</label>
+                <input asp-for="SpotLightConnector.actionName" class="form-control" required />
+                <span asp-validation-for="SpotLightConnector.actionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">Spotlight Items</label>
+            </div>
+            <div class="form-group">
+                <p>You can search in the select box to your spotlight items.</p>
+                <p>Please select 8 items. </p>
+            </div>
+            <select class="spotlight-select" name="ingredients" id="ingredients" multiple="multiple">
+                @foreach (var item in Model.SpotLightItems)
+                {
+                    <option name="ingredients" value="@item.Id.@item.Type">@item.Type: @item.Title -> @item.Category</option>
+                }
+            </select>
+            <div class="form-group">
+                <div class="spotlight-error-message">@ViewData["error_message"]</div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

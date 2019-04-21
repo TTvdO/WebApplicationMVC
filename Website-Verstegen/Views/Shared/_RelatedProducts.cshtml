@@ -1,0 +1,108 @@
+﻿<link href="~/css/RelatedProducts.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="~/js/RelatedProducts.js" type="text/javascript"></script>
+@model List<Product>
+
+<div class="related-container-fluid">
+    <div class="row">
+        <h5 class="row first-header-text">Products</h5>
+        <h1 class="row second-header-text">Related products</h1>
+    </div>
+    <div class="related-products-box-rows-container">
+        @foreach (var product in Model)
+        {
+        <div class="related-products-spotlight-box col-md-3 col-sm-6 col-xs-12">
+            <div class="related-products-content-box">
+                <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id">
+                    <div class="related-products-upper-img">
+                        <div class="related-products-text-block">
+                            <h3 class="related-products-type">@product.Type</h3>
+                        </div>
+                        <div class="related-products-special-img-container">
+                            <img class="related-products-img img-responsive product-image" src="@product.ImageUrl" />
+                        </div>
+                    </div>
+                </a>
+                <div class="related-products-lower-text spotlight">
+                    <h4 class="related-products-title">@product.Title</h4>
+                    <h5 class="related-products-category">@product.Category</h5>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    <div id="related-products-carousel" class="carousel related-products-carousel slide col-xs-12 hidden-lg hidden-md hidden-sm" data-ride="related-products-carousel">
+        <ol class="carousel-indicators related-products-carousel-indicators">
+            @{ 
+                int counter = 0;
+                foreach (var product in Model)
+                {
+                    if(counter == 0)
+                    {
+                        <li data-target="#related-products-carousel" data-slide-to="@counter" class="active"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#related-products-carousel" data-slide-to="@counter"></li>
+                    }
+                    counter++;
+                }
+            }
+        </ol>
+        <div class="carousel-inner related-products-carousel-inner">
+            @{
+            int counter2 = 0;
+            foreach (var product in Model)
+            {
+
+            if (counter2 == 0)
+            {
+            <div class="item active">
+                <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id">
+                    <div class="related-products-upper-img">
+                        <div class="related-products-text-block">
+                            <h3 class="related-products-type">@product.Type</h3>
+                        </div>
+                        <div class="related-products-special-img-container">
+                            <img class="related-products-img img-responsive product-image" src="@product.ImageUrl" />
+                        </div>
+                    </div>
+                </a>
+                <div class="related-products-lower-text spotlight">
+                    <h4 class="related-products-title">@product.Title</h4>
+                    <h5 class="related-products-category">@product.Category</h5>
+                </div>
+            </div>
+            }
+            else
+            {
+            <div class="item">
+                <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.Id">
+                    <div class="related-products-upper-img">
+                        <div class="related-products-text-block">
+                            <h3 class="related-products-type">@product.Type</h3>
+                        </div>
+                        <div class="related-products-special-img-container">
+                            <img class="related-products-img img-responsive product-image" src="@product.ImageUrl" />
+                        </div>
+                    </div>
+                </a>
+                <div class="related-products-lower-text spotlight">
+                    <h4 class="related-products-title">@product.Title</h4>
+                    <h5 class="related-products-category">@product.Category</h5>
+                </div>
+            </div>
+            }
+            counter2++;
+            }
+            }
+        </div>
+        <a href="#related-products-carousel" class="left carousel-control related-products-carousel-control" data-slide="prev"></a>
+        <a href="#related-products-carousel" class="right carousel-control related-products-carousel-control" data-slide="next"></a>
+    </div>
+    <div class="row button-row">
+        <a asp-controller="Products" asp-action="ProductOverview" class="more-button">
+            <div class="all-button">All products ></></div>
+        </a>
+    </div>
+</div>

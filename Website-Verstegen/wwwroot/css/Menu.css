@@ -1,0 +1,237 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Avenir');
+
+body {
+    font-family: 'Avenir', sans-serif !important;
+    height:100%;
+    overflow-x:hidden;
+}
+
+.container-fluid.main {
+    position: relative; 
+    padding: 0;
+}
+
+.explore {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.logo-img-navbar {
+    width: 100px;
+}
+
+.btn-secondary {
+    background-color: #ce0b35 !important;
+    border: none;
+}
+
+.menu-row {
+    height: 40px;
+}
+
+.under-btn-group {
+    background-color: rgba(0,0,0,0.25) !important;
+    color: rgba(255,255,255,0.85) !important;
+    border: none !important;
+    height: 34px;
+}
+
+.nav-foodind {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 14px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 160px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7) !important;
+    border-radius: 4px;
+}
+
+.menu-drop {
+    border-radius: 4px !important;
+    padding: 7px !important;
+    height: 45px;
+    width: 120px;
+    margin-left: -2px;
+    font-size: 22px !important;
+    color:rgba(255,255,255,0.95);
+}
+
+#navbar1{
+    padding-right:0px;
+}
+
+.navigation-top-menu {
+    position: absolute !important;
+    top: 0 !important;
+    width:100%;
+    margin-bottom: 2px !important;
+    height: 150px;
+}
+
+.nav-items{
+    margin-top:25px;
+
+}
+
+.navbar-nav {
+    margin-top: 12px !important;
+}
+
+.navbar-nav > li > a {
+    line-height: 22px !important;
+}
+
+.menu-drop:hover{
+    color:white;
+}
+
+.sidenav {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    top:0;
+    right: 0;
+    display: none;
+    z-index: 245;
+}
+
+.sidenav a {
+    padding: 5px 5px 5px 32px !important;
+    font-family: 'Avenir', sans-serif;
+    font-size: 36px;
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+.sidenav a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.sidenav a:active {
+    text-decoration: none;
+}
+
+.sidenav a:hover {
+    background-color: #cd0b35;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.menu-columns {
+    padding-top: 150px;
+    float: none !important;
+    display: table-cell;    
+}
+
+.right-col-div {
+    position: absolute;
+    bottom: 0;
+}
+
+.right-menu-column {
+    background: rgba(121,9,33,0.85);
+    bottom: 0;
+}
+
+.right-menu-column a {
+    font-size: 14px;
+}
+
+.left-menu-column {
+    background: rgba(121,9,33,0.95);
+    font-weight: 900;
+    vertical-align: top;
+    padding-top:90px;
+}
+
+.left-menu-column a:active {
+    background: white;
+    color: #790921;
+}
+
+.right-nav-section{
+    position:relative;
+    z-index:250;
+    right:0;
+}
+
+.left-nav-section {
+    z-index: 240;
+}
+
+.navbar-toggler {
+    background: #CD0B35 !important;
+    border-radius: 6px !important;
+    color: white !important;
+    font-size: 38px !important;
+    height: 70px;
+    width: 70px;
+    z-index: 15;
+    display: none;
+    position: sticky !important;
+    border: 0px;
+}
+
+.btn-group {
+    line-height: 23px;
+}
+
+.btn-group-search {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width:991px) {
+    .sidenav {
+        width: 75%;
+    }
+
+    .langsearchcont {
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .sidenav {
+        width: 100%;
+    }
+
+        .sidenav a {
+            font-size: 22px;
+        }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .langsearchcont {
+        margin-top: 75px;
+    }
+}
+@media only screen and (max-width: 480px){
+    .menu-column {
+        background: #930d2a;
+    }
+
+    .left-menu-column{
+        padding-top:100px;
+    }
+
+    .right-menu-column a{
+        padding:2px;
+    }
+
+    .sidenav a{
+        font-size:18px;
+    }
+
+    .language-search{
+        display:none;
+    }
+}
+

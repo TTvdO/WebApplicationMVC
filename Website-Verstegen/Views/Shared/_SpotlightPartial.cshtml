@@ -1,0 +1,96 @@
+﻿<link href="~/css/spotlightPartial.css" rel="stylesheet" type="text/css">
+<script src="~/js/Spotlight.js"></script>
+@model List<SpotLightItem>
+<div class="spotlight-container-fluid">
+    <div class="spotlight top-text text-center col-md-12 col-sm-12 col-xs-12">
+        <h2 class="spotlight">Products, recipes, inspiration</h2>
+    </div>
+    <div class="row">
+        <div class="spotlight text-center col-md-12 col-sm-12 col-xs-12">
+            <h1 class="spotlight-text">In the spotlight</h1>
+        </div>
+    </div>
+    <div class="spotlight-boxrows-container">
+        @foreach (var spotlightitem in Model)
+        {
+            <div class="spotlight-box col-md-3 col-sm-6 col-xs-6">
+                <div class="content-box">
+                    <a href="@spotlightitem.SpotlightUrl">
+                        <div class="spotlight-upper-img">
+                            <div class="spotlight-text-block">
+                                <h3 class="spotlight">@spotlightitem.Type</h3>
+                            </div>
+                            <div class="special-img-container">
+                                <img class="img-responsive spotlight-img special-img" src="@spotlightitem.ImageUrl" alt="@spotlightitem.Title">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="lower-text spotlight">
+                        <h4 class="spotlight">@spotlightitem.Title</h4>
+                        <h5 class="spotlight">@spotlightitem.Category</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div id="spotlight-carousel" class="carousel spotlight-carousel slide" data-ride="spotlight-carousel">
+        <ol class="carousel-indicators spotlight-carousel-indicators">
+            @{
+                int counter = 0;
+                foreach (var spotlightitem in Model)
+                {
+                    if (counter == 0)
+                    {
+                        <li data-target="#spotlight-carousel" data-slide-to="@counter" class="active"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#spotlight-carousel" data-slide-to="@counter"></li>
+                    }
+                    counter++;
+                }
+            }
+        </ol>
+        <div class="carousel-inner spotlight-carousel-inner">
+            @{
+                int counter2 = 0;
+                foreach (var spotlightitem in Model)
+                {
+                    if (counter2 == 0)
+                    {
+                        <div class="item spotlight-item active">
+                            <a href="@spotlightitem.SpotlightUrl">
+                                <div class="spotlight-text-block">
+                                    <h3 class="spotlight">@spotlightitem.Type</h3>
+                                </div>
+                                <img class="img-responsive spotlight-carousel-img" src="@spotlightitem.ImageUrl" alt="@spotlightitem.Title" />
+                            </a>
+                            <div class="lower-text spotlight">
+                                <h4 class="spotlight">@spotlightitem.Title</h4>
+                                <h5 class="spotlight">@spotlightitem.Category</h5>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item spotlight-item">
+                            <a href="@spotlightitem.SpotlightUrl">
+                                <div class="spotlight-text-block">
+                                    <h3 class="spotlight">@spotlightitem.Type</h3>
+                                </div>
+                                <img class="img-responsive spotlight-carousel-img" src="@spotlightitem.ImageUrl" alt="@spotlightitem.Title" />
+                            </a>
+                            <div class="lower-text spotlight">
+                                <h4 class="spotlight">@spotlightitem.Title</h4>
+                                <h5 class="spotlight">@spotlightitem.Category</h5>
+                            </div>
+                        </div>
+                    }
+                    counter2++;
+                }
+            }
+        </div>
+        <a href="#spotlight-carousel" class="left carousel-control spotlight-carousel-control" data-slide="prev"></a>
+        <a href="#spotlight-carousel" class="right carousel-control spotlight-carousel-control" data-slide="next"></a>
+    </div>
+</div>

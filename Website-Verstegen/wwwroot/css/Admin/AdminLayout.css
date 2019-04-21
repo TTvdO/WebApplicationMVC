@@ -1,0 +1,80 @@
+﻿.container-fluid{
+    overflow-x: hidden;
+    padding-bottom: 0px;
+}
+
+a{
+    padding-left: 5px;
+}
+
+h2{
+    padding-left: 5px;
+}
+
+body{
+    padding-bottom: 0px !important;
+}
+
+.col-sm-3{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.col-lg-2 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.col-lg-10 {
+    padding-left: 5px !important;
+    padding-right: 0px !important;
+}
+
+.col-sm-9 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.navbar-item{
+    font: bold 28px Arial;
+    padding-right: 20%;
+    padding-left: 5%;
+    margin-bottom: 1px;
+}
+
+.sidebar{
+    height: 100vh ;
+    margin: 0;
+}
+
+.admin-navbar{
+    margin-left: 16.67%;
+}
+
+.sidebar-admin{
+    width: 16.67%;
+    margin: 0 0 0 0 !important;
+}
+
+
+
+footer{
+    width: 100%;
+    padding-top: 110px;
+}
+
+.admin-menu-title{
+    font: bold 32px Arial;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    margin-right: 4%;
+}
+
+.content{
+    height: 100%;
+}
+.spotlight{
+    height: 100%;
+}

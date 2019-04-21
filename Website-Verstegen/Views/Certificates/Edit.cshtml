@@ -1,0 +1,55 @@
+﻿@model Website_Verstegen.Models.Certificate
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_AdminLayout";
+}
+
+<h2>Edit</h2>
+
+<h4>Certificate</h4>
+<hr />
+<div class="row">
+    @using (Html.BeginForm("Edit", "Certificates", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alt_Text" class="control-label"></label>
+                <input asp-for="Alt_Text" class="form-control" />
+                <span asp-validation-for="Alt_Text" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="Img_Src" class="control-label"></label>
+                <input asp-for="Img_Src" class="form-control" />
+                <span asp-validation-for="Img_Src" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.Label("Img_Src", "Img_Src")
+                @Html.TextBox("Img_Src", "Img_Src", new { @class = "form-control", type = "file" })
+            </div>
+            <div class="form-group">
+                <label class="control-label">Current Image</label>
+                <img class="img-responsive product-image" src="@Model.Img_Src" />
+            </div>
+        </div>
+    }
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

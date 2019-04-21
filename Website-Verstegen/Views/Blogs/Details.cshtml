@@ -1,0 +1,57 @@
+﻿@model Website_Verstegen.Models.Blog
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Details";
+}
+
+<link rel="stylesheet" href="~/css/Blogs.css" />
+
+<h2>Details</h2>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Subtitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Content)
+        </dd>
+        <dt>
+            @Html.DisplayName("ImageUrl")
+        </dt>
+        <dd>
+            <img class="img-responsive blog-image" src="@Model.ImageUrl" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

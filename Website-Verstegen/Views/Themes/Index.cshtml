@@ -1,0 +1,87 @@
+﻿@model Website_Verstegen.Data.PaginatedList<Theme>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+<h2>Index</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <input type="hidden" name="sortOrder" value="@ViewBag.NewSort" />
+    Filter by theme name: <input type="text" name="filter" value="@ViewBag.CurrentFilter" />
+    <input type="submit" value="Filter" class="btn btn-default" />
+    <a asp-action="Index" asp-route-sortOrder="@ViewBag.NewSort">
+        Complete list
+    </a>
+</form>
+
+<a asp-action="Index" asp-route-sortOrder="@ViewBag.CurrentSort" asp-route-filter="@ViewBag.CurrentFilter">
+    @if (@ViewBag.CurrentSort == "desc")
+    {
+        <p>Sort by theme name (Reverse alphabetical order)</p>
+    }
+    else
+    {
+        <p>Sort by theme name (Alphabetical order)</p>
+    }
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Theme name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                @Html.DisplayName("Image")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThemeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <img class="img-responsive crud-image" src="@item.ImageUrl" />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ThemeId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ThemeId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ThemeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage() ? "disabled" : "";
+
+    var nextDisabled = !Model.HasNextPage() ? "disabled" : "";
+}
+
+<a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-sortOrder="@ViewBag.NewSort"
+   asp-route-currentFilter="@ViewBag.CurrentFilter"
+   class="btn btn-default @prevDisabled">
+    < Vorige
+</a>
+<a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)"
+   asp-route-sortOrder="@ViewBag.NewSort"
+   asp-route-currentFilter="@ViewBag.CurrentFilter"
+   class="btn btn-default @nextDisabled">
+    Volgende >
+</a>

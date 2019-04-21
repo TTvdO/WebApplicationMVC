@@ -1,0 +1,51 @@
+﻿@model Website_Verstegen.Models.ThemeProduct
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_AdminLayout";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Theme & Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Product's title
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Title)
+        </dd>
+        <dt>
+            Product's category
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Category)
+        </dd>
+        <dt>
+            Product's description
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Description)
+        </dd>
+        <dt>
+            Theme's name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Theme.ThemeName)
+        </dd>
+        <dt>
+            Theme's description
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Theme.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ThemeProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

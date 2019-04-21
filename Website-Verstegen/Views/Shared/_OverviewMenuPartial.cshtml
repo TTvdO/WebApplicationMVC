@@ -1,0 +1,32 @@
+﻿@model List<Category>
+<div class="col-xs-12 col-md-2 col-md-offset-1">
+    <div class="row">
+        <div class="dropdown">
+            <button type="button" class="btn btn-default dropdown-toggle products-category-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="col-md-10 col-xs-10 btn-dropdown-left">
+                    <p id="branch-button-p">Choose a branch</p>
+                </div>
+                <div class="col-md-2 col-xs-2 btn-dropdown-right">
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                </div>
+            </button>
+            <ul class="dropdown-menu products-dropdown-menu">
+                <li><a href="/products/productoverview">Products</a></li>
+                <li><a href="/UnderConstruction">Packagings</a></li>
+                <li><a href="/recipes/overview">Recipes</a></li>
+            </ul>
+        </div>
+        <div class="col-md-12">
+            <h2>Type</h2>
+            <form>
+                <div id="products-section">
+                    <h4>Products</h4>
+                    @foreach (var item in Model)
+                    {
+                        <input type="radio" name="itemtypes" value="@item.Title" onchange="this.form.submit();"> @item.Title<br />
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

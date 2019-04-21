@@ -1,0 +1,51 @@
+<script src="~/js/Menu.js"></script>
+<link href="~/css/Menu.css" type="text/css" rel="stylesheet" />
+
+<div class="navbar navigation-top-menu col-md-12">
+    <div class="col-md-12 nav-items">
+        <div class="col-md-2 left-nav-section">
+            <a class="navbar-brand" href="/">
+                <img class="img-responsive logo-img-navbar" src="~/images/logomenu.png" />
+            </a>
+        </div>
+        <div class="col-md-10 right-nav-section">
+            <div class="row menu-row pull-right">
+                <button type="button" class="navbar-toggler navbar-fixed-top" id="menubuttontoggler" onclick="toggleMenu()">
+                    &#9776;
+                </button>
+                <div class="collapse navbar-collapse" id="navbar1">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-link nav-foodind rounded-left" id="food-ind">Food industry</a>
+                    </div>
+                    <div class="dropdown pull-right">
+                        <a class="btn btn-secondary menu-drop" href="#" id="dropdownMenuLink" onclick="toggleMenu()">
+                            &#9776; Menu
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sidenavi" class="sidenav">
+    <div class="col-xs-12 col-md-6 left-menu-column menu-column">
+        <a class="menu-items" href="/">Home</a>
+        <a class="menu-items" href="/UnderConstruction">How we work</a>
+        <a class="menu-items" href="/UnderConstruction">Inspiration</a>
+        <a class="menu-items" href="/UnderConstruction">News & events</a>
+        <a class="menu-items" href="/Products/productOverview">Products</a>
+        <a class="menu-items" href="/UnderConstruction">Packaging</a>
+        <a class="menu-items" href="/Recipes/Overview">Recipes</a>
+        <a class="menu-items" href="/UnderConstruction">Contact</a>
+    </div>
+    <div class="col-xs-12 col-md-6 right-menu-column menu-column">
+        <div class="right-col-div">
+            <a class="menu-items" href="/UnderConstruction">Verstegen &nbsp; →</a>
+            <a class="menu-items" href="/UnderConstruction">About Verstegen &nbsp; →</a>
+            <a class="menu-items" href="/UnderConstruction">Career &nbsp; →</a>
+            <a class="menu-items" href="/UnderConstruction">News &nbsp; →</a>
+        </div>
+
+    </div>
+</div>

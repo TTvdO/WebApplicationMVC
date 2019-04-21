@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div class="products-overview-head">
+        <img src="~/images/kerstimg.jpg" class="header-bg-img" alt="BGImage" />
+        <div class="head-img-txt-div">
+            <h1 class="head-bg-title">Enjoy great taste!</h1>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("Theme")
+@await Component.InvokeAsync("Category")
+@await Component.InvokeAsync("Spotlight")

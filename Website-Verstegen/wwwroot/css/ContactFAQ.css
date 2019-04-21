@@ -1,0 +1,216 @@
+﻿.contact-faq-row{
+    margin-bottom: 2%;
+}
+
+.faq-container {
+    margin-bottom: 1%;
+}
+
+.contact-us-left-side {
+    padding-left: 8%;
+    padding-right: 1%;
+}
+
+.contact-faq-header-text {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.contact-us-content-box {
+    padding: 4%;
+    background-color: #ECECEC;
+    border-radius: 5px;
+    margin-top: 2%;
+    padding-bottom: 3%;
+}
+
+.contact-us-image{
+    border-radius: 50%;
+}
+
+.contact-us-name {
+    font-weight: 700;
+    margin-left: 6%;
+    margin-bottom: 3px !important;
+    font-size: 25px
+}
+
+.contact-us-function {
+    width: 100%;
+    margin-left: 6%;
+    opacity: 0.5;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+.contact-us-detail-row {
+    margin-top: 2%;
+}
+
+.contact-us-details {
+    padding: 15px 0px 15px 0px;
+    background-color: white;
+    border-radius: 8px;
+    margin: 5px;
+    width: 48%;
+    box-shadow: 1px 1px 1px #b9adad;
+}
+
+.contact-us-email-details {
+    padding: 15px 0px 15px 0px;
+    background-color: white;
+    border-radius: 8px;
+    margin: 5px;
+    width: 48%;
+    box-shadow: 1px 1px 1px #b9adad;
+    margin-bottom: 3%;
+}
+
+.contact-us-info {
+    padding: 0px 25px;
+    font-size: 19px;
+    opacity: 0.7;
+}
+
+.contact-us-icons{
+    margin-right: 2%;
+    color: #CD0B35;
+    font-size: 21px;
+}
+
+.contact-us-button-row{
+    margin-top: 2%;
+    padding-left: 0 !important;
+}
+
+.contact-us-button {
+    font-size: 21px;
+    background-color: #CD0B35;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 14px 24px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.faq-right-side{
+    padding-right: 8%;
+    padding-left: 1%;
+}
+
+.faq-content-box {
+    margin-top: 3%;
+}
+
+.faq-collabsable-button-dark {
+    background-color: #ECECEC;
+    color: black;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 19px;
+    border-radius: 5px;
+    padding-left: 4%;
+}
+
+.active, faq-collabsable-button-dark{
+    background-color: #CD0B35;
+    color: white;
+}
+
+.faq-collabsable-button-dark:after {
+    content: '+';
+    color: #CD0B35;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    border: 2px #CD0B35;
+    border-radius: 5px;
+}
+
+.faq-collabsable-button-white {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 19px;
+    border-radius: 5px;
+    padding-left: 4%;
+}
+
+.active, faq-collabsable-button-white {
+    background-color: #CD0B35;
+    color: white;
+}
+
+.faq-collabsable-button-white::after {
+    content: '+';
+    color: #CD0B35;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    border: 2px #CD0B35;
+    border-radius: 5px;
+}
+
+.active:after {
+    content: "-";
+    color: white;
+}
+
+.content {
+    border-radius: 5px;
+    margin-top: 1%;
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.faq-content-text {
+    padding-left: 2%;
+    padding-top: 3%;
+    font-size: 18px;
+    margin-bottom: 3%;
+}
+
+@media screen and (max-width: 1341px) {
+    .contact-us-details {
+        width: 98%;
+    }
+
+    .contact-us-email-details{
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .contact-us-content-box{
+        padding-bottom: 30%;
+    }
+
+    .contact-us-left-side {
+        padding: 2%;
+    }
+
+    .faq-right-side {
+        padding: 2%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contact-us-content-box {
+        padding-bottom: 40%;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .contact-us-content-box {
+        padding-bottom: 62%;
+    }
+}

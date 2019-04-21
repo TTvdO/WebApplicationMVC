@@ -1,0 +1,76 @@
+﻿<link href="~/css/RecipeDoorway.css" rel="stylesheet" />
+@model Website_Verstegen.ViewModels.Recipe_IngredientViewModel
+@{ 
+    int counter = 1;
+}
+<div class="recipe-doorway-container-fluid">
+    <div class="row">
+        <div class="col-md-12 recipe-info-row">
+            <h5 class="row recipe-doorway-header-text">Recipes</h5>
+            <h1 class="row recipe-doorway-second-header-text">Some inspiration for you</h1>
+        </div>
+        @foreach (var item in Model.Recipes)
+        {
+            if (counter == 1)
+            {
+            <div class="col-md-6 col-sm-6 col-xs-12 left-side">                
+                <div class="recipe-box-left">
+                    <div class="recipe-content-image-left">
+                        <a href="/UnderConstruction">
+                            <img class="img-responsive recipe-image-left" src="@item.ImageUrl" />
+                        </a>
+                    </div>
+                    <div class="recipe-content-text-left">
+                        <h1 class="recipe-category-text">@item.Category</h1>
+                            <h1 class="recipe-name-text">@item.Title <a href="/UnderConstruction"><i class="fas fa-arrow-right arrow-right"></i></a></h1>                        
+                            <div class="recipe-ingredients-container">
+                                @foreach (var ingredient in Model.IngredientsFirstRecipe)
+                                {
+                                    if (ingredient == Model.IngredientsFirstRecipe.Last())
+                                    {
+                                        <span class="recipe-ingredients">@ingredient.Name </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="recipe-ingredients">@ingredient.Name, </span>
+                                    }
+                                }
+                            </div>
+                    </div>
+                </div>
+            </div>
+            }
+            else
+            {
+            <div class="col-md-6 col-sm-6 col-xs-12 right-side">
+                <div class="recipe-box-right">
+                    <div class="recipe-content-image-left">
+                        <a href="/UnderConstruction">
+                            <img class="img-responsive recipe-image-left" src="@item.ImageUrl" />
+                        </a>
+                    </div>
+                    <div class="recipe-content-text-left">
+                        <h1 class="recipe-category-text">@item.Category</h1>
+                            <h1 class="recipe-name-text">@item.Title <a href="/UnderConstruction"><i class="fas fa-arrow-right arrow-right"></i></a></h1>                        
+                            <div class="recipe-ingredients-container">
+                                @foreach (var ingredient in Model.IngredientsSecondRecipe)
+                                {
+                                    if (ingredient == Model.IngredientsSecondRecipe.Last())
+                                    {
+                                        <span class="recipe-ingredients">@ingredient.Name </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="recipe-ingredients">@ingredient.Name, </span>
+                                    }
+                                }
+                            </div>
+                    </div>
+                </div>
+            </div>
+            }
+            counter++;
+        }
+    </div>
+</div>
+

@@ -1,0 +1,67 @@
+﻿@model Website_Verstegen.Models.Story
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_AdminLayout";
+}
+
+<h2>Edit</h2>
+
+<h4>Story</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("Edit", "Stories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div>
+                <h4>@ViewBag.Error</h4>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Theme.ThemeName" class="control-label"></label>
+                <select asp-for="ThemeId" class="form-control" asp-items="ViewBag.ThemeId"></select>
+                <span asp-validation-for="ThemeId" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                @Html.Label("ImageUrl", "ImageUrl")
+                @Html.TextBox("ImageUrl", "ImageUrl", new { @class = "form-control", type = "file" })
+            </div>
+            <div class="form-group">
+                <label class="control-label">Current Image</label>
+                <img class="img-responsive crud-image" src="@Model.ImageUrl" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        }
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

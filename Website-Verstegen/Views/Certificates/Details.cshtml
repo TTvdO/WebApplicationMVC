@@ -1,0 +1,38 @@
+﻿@model Website_Verstegen.Models.Certificate
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>Certificate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayName("Alt Text")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alt_Text)
+        </dd>
+        <dt>
+            @Html.DisplayName("Image")
+        </dt>
+        <dd>
+            <img class="img-responsive product-image" src="@Model.Img_Src" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

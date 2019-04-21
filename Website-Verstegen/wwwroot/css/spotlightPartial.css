@@ -1,0 +1,190 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond');
+
+.spotlight-carousel {
+    display: none;
+    height: 500px;
+    margin-bottom: 60px;
+}
+
+.spotlight-container-fluid {
+    padding-left: 4%;
+    padding-right: 4%
+}
+
+.content-box {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 290px;
+}
+
+.top-text.spotlight {
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.spotlight-text {
+    margin-bottom: 44px;
+    font-family: 'Noto Serif', sans-serif;
+    font-weight: bold;
+}
+
+.spotlight-boxrows-container {
+    display: inline-block;
+}
+
+.spotlight-box {
+    height: 290px;
+    margin-bottom: 56.5px;
+}
+
+.spotlight-upper-img {
+    width: 100%;
+    height: 170px;
+    outline: 0.5px;
+    outline-width: thin;
+    outline-style: solid;
+    outline-color: rgb(220,220,220);
+}
+
+    .spotlight-upper-img:hover {
+        background-color: black;
+        opacity: 0.7;
+    }
+
+.lower-text.spotlight {
+    height: 120px;
+    width: 100%;
+    background-color: #e8e8e8;
+    padding-top: 5%;
+    padding-left: 6.5%;
+    font-size: 2vw;
+}
+
+.spotlight-img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 170px;
+    margin: 0 auto;
+}
+
+.special-img-container {
+    width: 100%;
+    height: 170px;
+    background-color: white;
+}
+
+.special-img {
+    max-width: 100%;
+    width: auto;
+    height: 170px;
+}
+
+h1.spotlight-text {
+    font-size: 55px;
+}
+
+h2.spotlight {
+    letter-spacing: 2.5px;
+    color: #2E8B57;
+    font-size: 25px;
+    font-family: 'EB Garamond', sans-serif;
+}
+
+h3.spotlight {
+    font-family: 'EB Garamond', sans-serif;
+    font-weight: normal;
+    margin: 0px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+h4.spotlight {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h5.spotlight {
+    font-size: 17.5px;
+}
+
+.spotlight-text-block {
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 12.5%;
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 2%;
+    opacity: 0.7;
+    background-color: black;
+    color: white;
+}
+
+
+@media screen and (max-width: 991.98px) {
+    h1.spotlight-text {
+        font-size: 30px;
+    }
+
+    h2.spotlight {
+        font-size: 20px;
+    }
+
+    .container-fluid {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .spotlight-box {
+        padding: 0px !important;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    h1.spotlight-text {
+        font-size: 20px;
+    }
+
+    h2.spotlight {
+        font-size: 20px;
+    }
+
+    .spotlight-box {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    .spotlight-container-fluid {
+        overflow-x: auto;
+    }
+
+    .spotlight-boxrows-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-bottom: 56.5px;
+    }
+
+    .spotlight-box {
+        flex: 0 0 auto;
+    }
+
+    h1.spotlight-text {
+        font-size: 15px;
+    }
+
+    h2.spotlight {
+        font-size: 20px;
+    }
+
+    .spotlight-box {
+        width: 100%;
+    }
+}

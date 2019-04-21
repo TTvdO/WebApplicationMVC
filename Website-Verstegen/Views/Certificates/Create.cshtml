@@ -1,0 +1,46 @@
+﻿@model Website_Verstegen.Models.Certificate
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+
+<h2>Create</h2>
+
+<h4>Certificate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("Create", "Certificates", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        { 
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" required />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alt_Text" class="control-label">Alt Text</label>
+                <input asp-for="Alt_Text" class="form-control" required />
+                <span asp-validation-for="Alt_Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Img_Src" class="control-label">Upload Image</label>
+                <input asp-for="Img_Src" class="form-control" type="file" required />
+                <span asp-validation-for="Img_Src" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

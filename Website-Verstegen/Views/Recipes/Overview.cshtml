@@ -1,0 +1,127 @@
+﻿<link href="~/css/Products/ProductOverview.css" rel="stylesheet" />
+<script src="~/js/ProductOverview.js" type="text/javascript"></script>
+@model Website_Verstegen.Data.PaginatedList<Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+@{
+    string paginationPrev = "";
+    if (Model.PageIndex - 1 < 1) { paginationPrev = "hidden"; }
+}
+<div class="row">
+    <div class="products-overview-head">
+        <img src="~/images/products/productsOverviewBG.jpg" class="header-bg-img" alt="BGImage" />
+        <div class="head-img-txt-div">
+            <h1 class="head-bg-title">Recipes</h1>
+            <h3 class="head-bg-subtitle">Enjoy great taste</h3>
+        </div>
+    </div>
+</div>
+<div class="row midrow-products-overview">
+    <div class="col-md-12">
+        <ul class="breadcrumb breadcrumb-head-products">
+            <li><a href="/Home">@Html.Label("Home", "Home")</a></li>
+            <li>Recipes</li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-3 div-head-left">
+            <img src="~/images/products/rosemary.png" alt="Rosemary" class="rosemary-img" />
+        </div>
+        <div class="col-md-6">
+            <h1 class="finest-flavs-title">The finest recipes, created with passion</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="col-md-3">
+            <div class="div-head-right">
+                <h2 class="div-head-right-title">Custom made</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                <a class="btn btn-default allproducts-btn" href="#" role="button">All products →</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-overview-container">
+    <div class="row">
+        <div class="col-md-12">
+            @await Component.InvokeAsync("OverviewMenu")
+            <div class="col-xs-12 col-md-9">
+                Sorting options
+                <div class="row">
+                    <div class="col-md-12">
+                        <a asp-action="Overview" asp-route-sortOrder="@ViewData["TitleSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Title</a>
+                        <a asp-action="Overview" asp-route-sortOrder="@ViewData["CategorySortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Category</a>
+                        <a asp-action="Overview" asp-route-sortOrder="@ViewData["DatumSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Aangemaakt</a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        string name = @item.GetType().Name; string nameXs = @item.GetType().Name + "s"; string nameXdetails = @item.GetType().Name + "details";
+                        <div class="col-md-4 col-sm-6 products-box-container">
+                            <div class="products-box">
+                                <a href="/UnderConstruction">
+                                    <div class="products-upper-img">
+                                        <div class="products-img-container">
+                                            <img class="img-responsive products-img" src="@item.ImageUrl" alt="@item.Title">
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="lower-text-products">
+                                    <h3 class="products-title-lower">@item.Title</h3>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    @{
+                        var prevDisabled = !Model.HasPreviousPage() ? "disabled" : "";
+                        var nextDisabled = !Model.HasNextPage() ? "disabled" : "";
+                    }
+                    <div class="pagination products-pagination">
+                        <div class="col-xs-2">
+                            <div class="page-item @prevDisabled">
+                                <a asp-action="Overview"
+                                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                                   asp-route-page="@(Model.PageIndex - 1)"
+                                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                   class="btn btn-secondary @prevDisabled">
+                                    Previous
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-8 mid-col-pagination">
+                            @{
+                                for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    if (Model.PageIndex == i)
+                                    {
+                                        <a disabled class="btn btn-secondary" href="/recipes/Overview?page=@(i)">@(i)</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-secondary" href="/recipes/Overview?page=@(i)">@(i)</a>
+                                    }
+                                }
+                            }
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="next-btn-paging @nextDisabled">
+                                <a asp-action="Overview"
+                                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                                   asp-route-page="@(Model.PageIndex + 1)"
+                                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                   class="btn btn-secondary @nextDisabled">
+                                    Next
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
